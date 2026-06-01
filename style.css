@@ -1,0 +1,234 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('https://upload.wikimedia.org/wikipedia/vi/thumb/2/24/Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg/250px-Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg') no-repeat center/cover;
+    color: white;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.appshell {
+    background-color: rgba(159, 209, 159, 0.833);
+    height: 550px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0 , 0.1);
+    transition:  0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+    backdrop-filter: blur(20px);
+    background: transparent;
+    border: 2px solid rgba(171, 171, 171, 0.1);
+    
+}
+
+.appshell:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 12px rgba(0, 0, 0 , 0.4);
+}
+
+.appshell img {
+    border-radius: 10px;
+    border: 2px solid rgba(182, 182, 182, 0.4);
+    transition: 0.3s;
+    border-radius: 50%;
+    animation: spin 10s linear infinite;
+    animation-play-state: paused;
+}
+
+.appshell img.spinning {
+    animation-play-state: running;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+.appshell img:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0 , 0.2);
+}
+
+.info {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.appshell h2 {
+    font-size: 21px;
+    font-weight: bold;
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    width: 100%;  
+}
+
+#musicTitle.fade-out {
+    animation: fade-out 0.4s forwards ease;
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
+
+#nextTitle.fade-in {
+    animation: fade-in 0.4s forwards ease;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+
+.title-container {
+    width: 300px; 
+    height: 55px;
+    position: relative;
+    margin-top: 20px; 
+}
+
+
+
+.appshell p {
+    font-size: 13px;
+    margin-top: 1px;
+    font-weight: bold;
+    color: rgb(105, 105, 105);
+}
+
+.btn {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+button {
+    background: transparent;
+    border: none;
+    font-size: 40px;
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    transition: background-color 0.4s ease, opacity 0.2s ease;
+    color: rgb(185, 185, 185);
+    cursor: pointer;
+}
+
+.musicBtn {
+   transition: transform 0.2s ease;
+}
+
+
+button:hover > .musicBtn {
+    transform: scale(1.1);
+}
+
+button:hover {
+    background-color: rgba(156, 156, 156, 0.15); 
+}
+
+button:active > .musicBtn {
+    transform: scale(0.9);
+}
+
+.btn button {
+    position: absolute;
+}
+
+#pauseBtn {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.btn.is-playing #pauseBtn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.btn.is-playing #playBtn {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.music-bar-container {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    
+}
+
+.musicTime {
+    font-size: 12px;
+    align-self: center; 
+    width: 30px; 
+}
+
+#musicBar {
+    width: 200px;
+    height: 3px;
+    appearance: none;
+    border-radius: 5px;
+    align-self: center;
+    background-color: rgb(182, 182, 182);
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#musicBar:hover {
+    height: 6px;
+}
+
+#musicBar::-webkit-slider-thumb {
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+#musicBar:hover::-webkit-slider-thumb {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 12px rgb(0, 0, 0, 0.08);
+    
+}
+
+.control-container {
+    display: flex;
+}
+
+#next, #back {
+    font-size: 30px;
+}
+
+
+
+
+
+
+
