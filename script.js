@@ -84,7 +84,7 @@ fetch("song.json")
     })
     .catch(e => {
         console.error("ERROR!!!", e);
-    });
+});
 
 audio.addEventListener("loadedmetadata", () => {
     musicBar.max = Math.floor(audio.duration);

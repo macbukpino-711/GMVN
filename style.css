@@ -48,6 +48,7 @@ body::-webkit-scrollbar {
     border-radius: 50%;
     animation: spin 10s linear infinite;
     animation-play-state: paused;
+    
 }
 
 .appshell img.spinning {
@@ -140,6 +141,7 @@ button {
 
 .musicBtn {
    transition: transform 0.2s ease;
+   user-select: none;
 }
 
 
@@ -226,6 +228,29 @@ button:active > .musicBtn {
     font-size: 30px;
 }
 
+
+
+@media screen and (max-width: 414px) {
+    .appshell {
+        width: 320px;
+    }
+
+    .title-container h2 {
+        font-size: 18px;
+    }
+
+    .appshell img {
+        width: 240px;
+    }
+
+    .music-bar-container {
+        width: 250px;
+    }
+
+    .title-container {
+        width: 260px;
+}
+}
 
 
 
