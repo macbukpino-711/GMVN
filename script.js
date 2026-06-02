@@ -10,6 +10,7 @@ const pause = document.getElementById("pauseBtn");
 const control = document.getElementById("controlBtn");
 const next = document.getElementById("next");
 const back = document.getElementById("back");
+const repeat = document.getElementById("repeatBtn");
 
 const musicBar = document.getElementById("musicBar");
 const currentTime = document.getElementById("currentTime");
@@ -17,6 +18,7 @@ const duration = document.getElementById("duration");
 
 let isDragging = false;
 let audio = new Audio();
+
 
 let songs = [];
 let currentIndex = 0;
@@ -169,6 +171,31 @@ back.addEventListener("click", () => {
     changeSongEffect(currentIndex);
 
 });
+
+
+function repeatSong() {
+    audio.loop = !audio.loop;
+
+    repeat.classList.toggle("active", audio.loop);
+    next.classList.toggle("active", audio.loop);
+    back.classList.toggle("active", audio.loop);
+
+    if (audio.loop) {
+        next.disabled = true;
+        back.disabled = true;
+    } else {
+        next.disabled = false;
+        back.disabled = false;
+    }
+}
+
+repeat.addEventListener("click", () => {
+    repeatSong();
+});
+
+
+
+
 
 
 

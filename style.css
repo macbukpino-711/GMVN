@@ -36,12 +36,48 @@ body::-webkit-scrollbar {
     backdrop-filter: blur(20px);
     background: transparent;
     border: 2px solid rgba(171, 171, 171, 0.1);
+    position: relative;
     
 }
 
 .appshell:hover {
     transform: scale(1.01);
     box-shadow: 0 4px 12px rgba(0, 0, 0 , 0.4);
+}
+
+.appshell > .btn {
+   position: absolute;
+   z-index: 9;
+   top: 25%;
+   left: 41%;
+   opacity: 0;
+   transition: 0.2s ease;
+}
+
+.appshell  #repeatBtn  .musicBtn {
+    opacity: 0.5;
+}
+
+.appshell > .btn:hover + img {
+    filter: brightness(0.6);
+}
+
+#repeatBtn {
+    font-size: 25px;
+}
+
+#repeatBtn.active {
+    color: white;
+}
+
+#back.active, #next.active {
+    opacity: 0.4;
+}
+
+
+
+.appshell > .btn:hover {
+    opacity: 1;
 }
 
 .appshell img {
@@ -51,6 +87,7 @@ body::-webkit-scrollbar {
     border-radius: 50%;
     animation: spin 10s linear infinite;
     animation-play-state: paused;
+    
     
 }
 
@@ -148,15 +185,15 @@ button {
 }
 
 
-button:hover > .musicBtn {
+button:not(:disabled):hover > .musicBtn {
     transform: scale(1.1);
 }
 
-button:hover {
+button:not(:disabled):hover {
     background-color: rgba(156, 156, 156, 0.15); 
 }
 
-button:active > .musicBtn {
+button:not(:disabled):active > .musicBtn {
     transform: scale(0.9);
 }
 
