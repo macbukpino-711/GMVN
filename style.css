@@ -1,4 +1,6 @@
-
+* {
+    -webkit-tap-highlight-color: transparent;
+}
 
 * {
     box-sizing: border-box;
@@ -12,6 +14,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: url('https://upload.wikimedia.org/wikipedia/vi/thumb/2/24/Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg/250px-Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg') no-repeat center/cover;
     color: white;
+    overflow: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -227,6 +230,7 @@ button:active > .musicBtn {
 #next, #back {
     font-size: 30px;
 }
+
 
 
 
