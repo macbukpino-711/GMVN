@@ -16,12 +16,12 @@ const musicBar = document.getElementById("musicBar");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
+
+
 let isDragging = false;
-let audio = new Audio();
-
-
-let songs = [];
 let currentIndex = 0;
+let songs = [];
+let audio = new Audio();
 
 function loadSong(index) {
     const currentSong = songs[index];
@@ -29,9 +29,6 @@ function loadSong(index) {
     image.src = currentSong.img;
     artist.textContent = currentSong.artist;
     audio.src = currentSong.audio;
-    
-    musicBar.value = 0;
-    currentTime.textContent = formatTime(0);
 }
 
 let effectTimeout;
@@ -44,17 +41,13 @@ function changeSongEffect(index) {
     }
 
     nextTitle.textContent = currentSong.title;
-
-    void title.offsetWidth;
-    void nextTitle.offsetWidth;
-
     title.classList.add("fade-out");
     nextTitle.classList.add("fade-in");
 
-    loadSong(index);
+    loadSong(currentIndex);
     audio.play();
-    control.classList.add("is-playing");
     image.classList.add("spinning");
+    control.classList.add("is-playing");
 
     effectTimeout = setTimeout(() => {
         title.textContent = currentSong.title;
@@ -64,28 +57,48 @@ function changeSongEffect(index) {
     }, 400);
 }
 
-
 fetch("song.json")
     .then(data => data.json())
     .then (data => {
-
         songs = data;
         loadSong(currentIndex);
-        
-        play.addEventListener("click", () => {
-            audio.play();
-            control.classList.add("is-playing");
-            image.classList.add("spinning");
-        });
-
-        pause.addEventListener("click", () => {
-            audio.pause();
-            control.classList.remove("is-playing");
-            image.classList.remove("spinning");
-        });
     })
     .catch(e => {
         console.error("ERROR!!!", e);
+});
+
+play.addEventListener("click", () => {
+    audio.play();
+    image.classList.add("spinning");
+    control.classList.add("is-playing");
+});
+
+pause.addEventListener("click", () => {
+    audio.pause();
+    image.classList.remove("spinning");
+    control.classList.remove("is-playing");
+});
+
+function nextSong() {
+    currentIndex++;
+
+    if (currentIndex > songs.length - 1) {
+        currentIndex = 0;
+    }
+
+    changeSongEffect(currentIndex);
+}
+
+next.addEventListener("click", nextSong);
+
+back.addEventListener("click", () => {
+   currentIndex--;
+
+   if (currentIndex < 0) {
+        currentIndex = songs.length - 1;
+   }
+
+   changeSongEffect(currentIndex);
 });
 
 audio.addEventListener("loadedmetadata", () => {
@@ -96,102 +109,58 @@ audio.addEventListener("loadedmetadata", () => {
 
 audio.addEventListener("timeupdate", () => {
     if (!isDragging) {
-        musicBar.value = audio.currentTime;
-        currentTime.textContent = formatTime(Math.floor(audio.currentTime));
-        PaintProgress();
+        currentTime.textContent = formatTime(audio.currentTime);
+        musicBar.value = Math.floor(audio.currentTime);
     }
-}); 
-
-musicBar.addEventListener("mousedown", () => {
-    isDragging = true;
-}); 
+    PaintProgress();
+});
 
 musicBar.addEventListener("input", () => {
+    isDragging = true;
     currentTime.textContent = formatTime(musicBar.value);
     PaintProgress();
 });
 
 musicBar.addEventListener("change", () => {
-    audio.currentTime = musicBar.value;
+    audio.currentTime = Math.floor(musicBar.value);
     isDragging = false;
-});
+    PaintProgress();
+}); 
 
 function formatTime(sec) {
     let minutes = Math.floor(sec / 60);
     let seconds = Math.floor(sec % 60);
 
-    if (seconds < 10) seconds = `0${seconds}`;
     if (minutes < 10) minutes = `0${minutes}`;
+    if (seconds < 10) seconds = `0${seconds}`;
 
     return `${minutes}:${seconds}`;
 }
 
 function PaintProgress() {
-    const max = musicBar.max;
-    const value = musicBar.value;
-
-    const percent = (value/max) * 100;
+    let value = musicBar.value;
+    let max = musicBar.max;
+    let percent = (value/max) * 100;
 
     musicBar.style.background = `linear-gradient(to right, rgb(255, 255, 255) ${percent}%, rgba(182, 182, 182, 0.15) ${percent}%)`;
 }
 
-audio.addEventListener("ended", () => {
-    currentIndex++;
+audio.addEventListener("ended", nextSong);
 
-    if (currentIndex == songs.length) {
-        currentIndex = 0;
-    }
-
-    changeSongEffect(currentIndex);
-
-    musicBar.value = 0;
-    currentTime.textContent = formatTime(0);
-    musicBar.style.background = `rgb(182, 182, 182)`;
-    
-});
-
-next.addEventListener("click", () => {
-    currentIndex++;
-
-    if (currentIndex >= songs.length) {
-        currentIndex = 0;
-    }
-
-    changeSongEffect(currentIndex);
-
-});
-
-back.addEventListener("click", () => {
-    currentIndex--;
-
-    if (currentIndex < 0) {
-        currentIndex = songs.length - 1;
-    }
-
-    changeSongEffect(currentIndex);
-
-});
-
-
-function repeatSong() {
+repeat.addEventListener("click", () => {
     audio.loop = !audio.loop;
 
     repeat.classList.toggle("active", audio.loop);
     next.classList.toggle("active", audio.loop);
     back.classList.toggle("active", audio.loop);
 
-    if (audio.loop) {
-        next.disabled = true;
-        back.disabled = true;
-    } else {
-        next.disabled = false;
-        back.disabled = false;
-    }
-}
-
-repeat.addEventListener("click", () => {
-    repeatSong();
+    next.disabled = audio.loop ? true : false;
+    back.disabled = audio.loop ? true : false;
 });
+
+
+
+
 
 
 
