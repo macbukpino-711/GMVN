@@ -158,6 +158,26 @@ repeat.addEventListener("click", () => {
     back.disabled = audio.loop ? true : false;
 });
 
+let userId = localStorage.getItem("userId");
+
+if (!userId) {
+    userId = crypto.randomUUID();
+    localStorage.setItem("userId", userId);
+}
+
+function sendHeartbeat() {
+    fetch("/api/heartbeat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ userId })
+    });
+}
+
+sendHeartbeat();
+setInterval(sendHeartbeat, 5000);
+
 
 
 
