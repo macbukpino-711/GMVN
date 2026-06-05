@@ -84,5 +84,13 @@
         "artist": "Phùng Khánh Linh",
         "img": "https://upload.wikimedia.org/wikipedia/vi/thumb/2/24/Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg/250px-Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg",
         "audio": "src/EmDau.mp3"
+    },
+
+    {
+        "title": "GIẢ VỜ",
+        "artist":"Phùng Khánh Linh",
+        "img": "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/1/a/c/2/1ac2c6c4381f04cc10ecf38af56af152.jpg",
+        "audio": "src/GiaVo.mp3"
+
     }
 ]

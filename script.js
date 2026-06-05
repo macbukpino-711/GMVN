@@ -1,9 +1,11 @@
 window.resizeTo(200, 650);
 
 const image = document.getElementById("musicImage");
+const nextImage = document.getElementById("nextMusicImage");
 const title = document.getElementById("musicTitle");
 const nextTitle = document.getElementById("nextTitle");
 const artist = document.getElementById("musicArtist");
+const imgContainer = document.getElementById("imgContainer");
 
 const play = document.getElementById("playBtn");
 const pause = document.getElementById("pauseBtn");
@@ -26,7 +28,7 @@ let audio = new Audio();
 function loadSong(index) {
     const currentSong = songs[index];
 
-    image.src = currentSong.img;
+    // image.src = currentSong.img;
     artist.textContent = currentSong.artist;
     audio.src = currentSong.audio;
 }
@@ -44,15 +46,23 @@ function changeSongEffect(index) {
     title.classList.add("fade-out");
     nextTitle.classList.add("fade-in");
 
+    nextImage.src = currentSong.img;
+    image.classList.add("fade-out");
+    nextImage.classList.add("fade-in");
+
     loadSong(currentIndex);
     audio.play();
-    image.classList.add("spinning");
+    imgContainer.classList.add("spinning");
     control.classList.add("is-playing");
 
     effectTimeout = setTimeout(() => {
         title.textContent = currentSong.title;
         title.classList.remove("fade-out");
         nextTitle.classList.remove("fade-in");
+
+        image.src = currentSong.img;
+        image.classList.remove("fade-out");
+        nextImage.classList.remove("fade-in");
         effectTimeout = null;
     }, 400);
 }
@@ -69,13 +79,13 @@ fetch("song.json")
 
 play.addEventListener("click", () => {
     audio.play();
-    image.classList.add("spinning");
+    imgContainer.classList.add("spinning");
     control.classList.add("is-playing");
 });
 
 pause.addEventListener("click", () => {
     audio.pause();
-    image.classList.remove("spinning");
+    imgContainer.classList.remove("spinning");
     control.classList.remove("is-playing");
 });
 
@@ -158,25 +168,7 @@ repeat.addEventListener("click", () => {
     back.disabled = audio.loop ? true : false;
 });
 
-let userId = localStorage.getItem("userId");
 
-if (!userId) {
-    userId = crypto.randomUUID();
-    localStorage.setItem("userId", userId);
-}
-
-function sendHeartbeat() {
-    fetch("/api/heartbeat", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ userId })
-    });
-}
-
-sendHeartbeat();
-setInterval(sendHeartbeat, 5000);
 
 
 

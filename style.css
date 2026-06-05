@@ -58,7 +58,7 @@ body::-webkit-scrollbar {
     opacity: 0.5;
 }
 
-.appshell > .btn:hover + img {
+.appshell > .btn:hover + .img-container {
     filter: brightness(0.6);
 }
 
@@ -83,15 +83,27 @@ body::-webkit-scrollbar {
 .appshell img {
     border-radius: 10px;
     border: 2px solid rgba(182, 182, 182, 0.4);
-    transition: 0.3s;
     border-radius: 50%;
-    animation: spin 10s linear infinite;
-    animation-play-state: paused;
-    
-    
+    transition: 0.3s ease;
+    width: 250px;
+    position: absolute;
 }
 
-.appshell img.spinning {
+.img-container {
+    position: relative;
+    height: 250px;
+    width: 250px;
+    transition: 0.3s;
+    animation: spin 10s linear infinite;
+    animation-play-state: paused;
+    border-radius: 50%;
+}
+
+.appshell #musicImage.changing {
+    animation: fade-out 
+}
+
+.appshell .img-container.spinning {
     animation-play-state: running;
 }
 
@@ -103,8 +115,13 @@ body::-webkit-scrollbar {
     }
 }
 
-.appshell img:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0 , 0.2);
+.appshell > .btn:hover + .img-container > img{
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+}
+
+.appshell .img-container:hover > img {
+    transform: scale(1.05);
 }
 
 .info {
@@ -123,6 +140,10 @@ body::-webkit-scrollbar {
 
 #musicTitle.fade-out {
     animation: fade-out 0.4s forwards ease;
+}
+
+#nextMusicImage.fade-in {
+    animation: fade-in 0.4s forwards ease;
 }
 
 @keyframes fade-out {
