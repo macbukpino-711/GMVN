@@ -49,7 +49,6 @@ body::-webkit-scrollbar {
    position: absolute;
    z-index: 9;
    top: 25%;
-   left: 41%;
    opacity: 0;
    transition: 0.2s ease;
 }
@@ -85,8 +84,9 @@ body::-webkit-scrollbar {
     border: 2px solid rgba(182, 182, 182, 0.4);
     border-radius: 50%;
     transition: 0.3s ease;
-    width: 250px;
     position: absolute;
+    width: 250px;
+    
 }
 
 .img-container {
@@ -96,7 +96,7 @@ body::-webkit-scrollbar {
     transition: 0.3s;
     animation: spin 10s linear infinite;
     animation-play-state: paused;
-    border-radius: 50%;
+    border-radius: 50%; 
 }
 
 .appshell #musicImage.changing {
@@ -297,12 +297,16 @@ button:not(:disabled):active > .musicBtn {
         width: 320px;
     }
 
+    .appshell > .btn {
+        left: 39%;
+    }
+
     .title-container h2 {
         font-size: 18px;
     }
 
     .appshell img {
-        width: 240px;
+        width: 250px;
     }
 
     .music-bar-container {
@@ -311,7 +315,9 @@ button:not(:disabled):active > .musicBtn {
 
     .title-container {
         width: 260px;
-}
+    }
+
+    
 }
 
 
