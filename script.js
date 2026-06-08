@@ -18,12 +18,32 @@ const musicBar = document.getElementById("musicBar");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
-
-
 let isDragging = false;
 let currentIndex = 0;
 let songs = [];
 let audio = new Audio();
+
+const currentPath = window.location.pathname;
+let jsonFile = "";
+
+if (currentPath.includes("citopia.html")) {
+    jsonFile = "citopia.json";
+    document.body.classList.add("citopia-theme");
+    artist.style.color = "rgb(255, 255, 255, 0.5)";
+} else {
+    jsonFile = "gmvn.json";
+    document.body.classList.add("gmvn-theme");
+}
+
+fetch(jsonFile)
+    .then(data => data.json())
+    .then (data => {
+        songs = data;
+        loadSong(currentIndex);
+    })
+    .catch(e => {
+        console.error("ERROR!!!", e);
+});
 
 function loadSong(index) {
     const currentSong = songs[index];
@@ -66,16 +86,6 @@ function changeSongEffect(index) {
         effectTimeout = null;
     }, 400);
 }
-
-fetch("song.json")
-    .then(data => data.json())
-    .then (data => {
-        songs = data;
-        loadSong(currentIndex);
-    })
-    .catch(e => {
-        console.error("ERROR!!!", e);
-});
 
 play.addEventListener("click", () => {
     audio.play();

@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    
+}
+
+.bg {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.4s ease;
+    z-index: -3;
+}
+
+.filter {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(30px);
+    filter: brightness(0.6);
+    z-index: -2;
+}
+
+
+.bg.default {
+    background: url('https://i.ytimg.com/vi/2Ma77NJ1fEI/maxresdefault.jpg') center/cover no-repeat;
+    opacity: 1;
+}
+
+.bg.gmvn {
+    background: url('https://www.marieclaire.vn/media/full/2025/10/1761554932_review_giua_mot_van_nguoi_phung_khanh_linh-jpg.jpg') center/cover no-repeat;
+    opacity: 0;
+}
+
+.bg.citopia {
+    background: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/05daab178790161.64ee382c18106.jpg') center/cover no-repeat;
+    opacity: 0;
+}
+
+body:has(#citopia:hover) > .bg.citopia{
+    opacity: 1;
+}
+
+body:has(#citopia:hover) > .bg.default{
+    opacity: 0;
+}
+
+body:has(#gmvn:hover) > .bg.gmvn {
+    opacity: 1;
+}
+
+body:has(#gmvn:hover) > .bg.bg.default {
+    opacity: 0;
+}
+
+.image {
+    width: 180px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.image:hover {
+    box-shadow: 5px 4px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.disc {
+    width: 170px;
+    position: absolute;
+    z-index: -1;
+    top: 3%;
+    left: 30%;
+    animation: spin 3s linear infinite;
+    animation-play-state: paused;
+    transition: 0.5s ease;
+}
+
+a:hover + .disc {
+    left: 50%;
+    animation-play-state: running;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.container {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.album-container {
+    align-items: center;
+    position: relative;
+}
+

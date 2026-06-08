@@ -12,9 +12,16 @@ body {
     align-items: center;
     height: 100vh;
     font-family: 'Segoe UI', sans-serif;
-    background: url('https://upload.wikimedia.org/wikipedia/vi/thumb/2/24/Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg/250px-Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg') no-repeat center/cover;
     color: white;
     overflow: hidden;
+}
+
+body.gmvn-theme {
+    background: url('https://upload.wikimedia.org/wikipedia/vi/thumb/2/24/Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg/250px-Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg') no-repeat center/cover;
+}
+
+body.citopia-theme {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)) ,url('https://tse2.mm.bing.net/th/id/OIP.rnDZVzh8Pp_cf4whAK6nIQHaHa?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3') no-repeat center/cover;
 }
 
 body::-webkit-scrollbar {
@@ -44,6 +51,9 @@ body::-webkit-scrollbar {
     transform: scale(1.01);
     box-shadow: 0 4px 12px rgba(0, 0, 0 , 0.4);
 }
+
+
+
 
 .appshell > .btn {
    position: absolute;
@@ -81,13 +91,62 @@ body::-webkit-scrollbar {
 
 .appshell img {
     border-radius: 10px;
-    border: 2px solid rgba(182, 182, 182, 0.4);
+    border: 2px solid rgba(171, 171, 171, 0.1);
     border-radius: 50%;
     transition: 0.3s ease;
     position: absolute;
     width: 250px;
+}
+
+.next-album img {
+    width: 50px; 
+    opacity: 0;
+    transition: 0.2s ease;
+}
+
+.next-album {
+    position: absolute;
+    bottom: 5%;
+    right: 8%;
     
 }
+
+.next-album img:hover {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.1);
+    border: 2px solid rgba(174, 174, 174, 0.5);
+}
+
+.menu {
+    position: absolute;
+    left: 0;
+    padding: 8px;
+    border-radius: 50%;
+    bottom: 9%;
+    left: 5%;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transition: 0.2s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    border: 2px solid rgba(171, 171, 171, 0.1);
+}
+
+.menu:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    border: 2px solid rgba(174, 174, 174, 0.5);
+}
+
+.menu a {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    
+}
+
 
 .img-container {
     position: relative;
@@ -315,6 +374,22 @@ button:not(:disabled):active > .musicBtn {
 
     .title-container {
         width: 260px;
+    }
+
+    .next-album img {
+        opacity: 1;
+        width: 50px;
+    }
+
+    .next-album {
+        top: 50%;
+        right: 8%; 
+    }
+
+    .menu {
+        top: 52%;
+        left: 3%;
+        opacity: 1;
     }
 
     

@@ -1,0 +1,71 @@
+[
+    {
+        "title": "căn gác mùa hè",
+        "img": "https://tse3.mm.bing.net/th/id/OIP.YnRZL6jMmMprRKfPL-ncrwAAAA?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "artist": "Phùng Khánh Linh",
+        "audio": "src/CanGacMuaHe.mp3"
+    },
+
+    {
+        "title": "quý cô say xỉn",
+        "img": "https://tse2.mm.bing.net/th/id/OIP.rnDZVzh8Pp_cf4whAK6nIQHaHa?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "artist": "Phùng Khánh Linh",
+        "audio": "src/QuyCoSayXin.mp3"
+    },
+
+    {
+        "title": "nói lời có giữ lời",
+        "img": "https://tse2.mm.bing.net/th/id/OIP.rnDZVzh8Pp_cf4whAK6nIQHaHa?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "artist": "Phùng Khánh Linh",
+        "audio": "src/NoiLoiCoGiuLoi.mp3"
+    },
+
+    {
+        "title": "ngưu tầm ngưu mã tầm mã",
+        "img": "https://tse2.mm.bing.net/th/id/OIP.rnDZVzh8Pp_cf4whAK6nIQHaHa?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "artist": "Phùng Khánh Linh",
+        "audio": "src/NguuTamNguuMaTamMa.mp3"
+    },
+
+    {
+        "title": " 1 2 3 4 tí tách",
+        "img": "https://tse2.mm.bing.net/th/id/OIP.rnDZVzh8Pp_cf4whAK6nIQHaHa?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "artist": "Phùng Khánh Linh",
+        "audio": "src/1234TiTach.mp3"
+    },
+
+    {
+        "title": "năm ngoái giờ này",
+        "img": "https://tse2.mm.bing.net/th/id/OIP.tW_v61YVmIO84DWwdvDZUgHaHa?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "artist": "Phùng Khánh Linh",
+        "audio": "src/NamNgoaiGioNay.mp3"
+    },
+
+    {
+        "title": "mùa hè 1994",
+        "img": "https://tse2.mm.bing.net/th/id/OIP.rnDZVzh8Pp_cf4whAK6nIQHaHa?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "artist": "Phùng Khánh Linh",
+        "audio": "src/MuaHe1994.mp3"
+    },
+
+    {
+        "title": "đằng sau sân khấu",
+        "img": "https://tse2.mm.bing.net/th/id/OIP.rnDZVzh8Pp_cf4whAK6nIQHaHa?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "artist": "Phùng Khánh Linh",
+        "audio": "src/DangSauSanKhau.mp3"
+    },
+
+    {
+        "title": "sài gòn ôm lấy em",
+        "img": "https://tse2.mm.bing.net/th/id/OIP.rnDZVzh8Pp_cf4whAK6nIQHaHa?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "artist": "Phùng Khánh Linh",
+        "audio": "src/SaiGonOmLayEm.mp3"
+    },
+
+    {
+        "title": "em tạm đi vắng khi anh thức giấc",
+        "img": "https://tse2.mm.bing.net/th/id/OIP.rnDZVzh8Pp_cf4whAK6nIQHaHa?r=0&cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "artist": "Phùng Khánh Linh",
+        "audio": "src/EmTamDiVangKhiAnhThucGiac.mp3"
+    }
+]

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIỮA MỘT VẠN NGƯỜI</title>
+    <link rel="stylesheet" href="album.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link ref="icon" href="https://cdn.hstatic.net/products/1000304920/1x1_ef0bd74277824128a0a64246b41787d8_master.jpg">
+</head>
+<body>
+    <div class="appshell">
+        <div class="btn">
+            <button id="repeatBtn" type="button"><i class="fa-solid fa-repeat musicBtn"></i></button>
+        </div>
+        
+        <div class="img-container" id="imgContainer">
+            <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/2/24/Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg/250px-Gi%E1%BB%AFa_m%E1%BB%99t_v%E1%BA%A1n_ng%C6%B0%E1%BB%9Di.jpg" alt="music-image" id="musicImage">
+            <img src="" alt="music-image" id="nextMusicImage" style="opacity: 0;">
+        </div>
+        
+        <div class="info">
+            <div class="title-container">
+                <h2 id="musicTitle">GRIEF IS THE PRICE YOU PAY FOR LOVE</h2>
+                <h2 id="nextTitle"></h2>
+            </div>
+            
+            <p id="musicArtist">Dang tai...</p>
+        </div>
+        <div class="music-bar-container">
+            <span id="currentTime" class="musicTime">00:00</span>
+            <input type="range" id="musicBar" value="0" min="0" max="100">
+            <span id="duration" class="musicTime">00:00</span>
+        </div>
+
+       <div class="control-container">
+            <div class="btn">
+                <button id="back"><i class="fa-solid fa-backward musicBtn"></i></button>
+            </div>
+
+            <div class="btn" id="controlBtn">
+                <button id="playBtn" type="button"><i class="fa-solid fa-play musicBtn"></i></button>
+                <button id="pauseBtn" type="button"><i class="fa-solid fa-pause musicBtn"></i></button>
+            </div>
+
+            <div class="btn">
+                <button id="next"><i class="fa-solid fa-forward musicBtn"></i></button>
+            </div>
+       </div>
+
+
+       <div class="next-album">
+            <a href="citopia.html"><img src="https://i.scdn.co/image/ab67616d00001e02ac5d09eaaf0a8609100ba290"></a>
+       </div>
+    </div>
+
+     <div class="menu">
+            <a href="index.html"><i class="fa-solid fa-house"></i></a>
+    </div>
+
+
+    <audio src=""></audio>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/1a4431bf47.js" crossorigin="anonymous"></script>
+</body>
+</html>
