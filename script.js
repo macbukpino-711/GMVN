@@ -1,4 +1,4 @@
-window.resizeTo(200, 650);
+
 
 const image = document.getElementById("musicImage");
 const nextImage = document.getElementById("nextMusicImage");
